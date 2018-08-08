@@ -1,20 +1,23 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Stage 1') {
-            steps {
-                echo 'Hello world!' 
-            }
-        }
-        stage('Stage 2') {
-            steps {
-                echo 'Hi world!' 
-            }
-        }
-        stage('Stage 3') {
-            steps {
-                echo 'Bye world!!!' 
-            }
-        }
-    }
-}
+  agent none 
+  stages {
+
+		stage('Checkout CloudDeployment Automation project') {
+					agent {
+						label 'vmlna01'
+					}
+					environment {
+						workspace="/home/siqa/mosy2/"
+					}
+					steps {
+						script {
+						    dir('${workspace}')
+							{
+								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git'
+								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/bpms-cluster.git -b siqa-trunk-bpms-cluster'
+							}
+						}
+					}
+				}
+			}
+		}
