@@ -1,5 +1,7 @@
 pipeline {
-  agent none 
+  agent {
+	label 'vmlna01'
+	    }
   stages {
 
 		stage('Checkout CloudDeployment Automation project') {
