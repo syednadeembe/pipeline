@@ -7,7 +7,7 @@ pipeline {
 						label 'vmlna01'
 					}
 					environment {
-						workspace="/home/siqa/"
+						workspace="/home/siqa/test"
 					}
 					steps {
 						script {
