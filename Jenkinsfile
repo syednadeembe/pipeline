@@ -7,11 +7,11 @@ pipeline {
 						label 'vmlna01'
 					}
 					environment {
-						workspace="/home/siqa/mosy2/"
+						workspace="mosy2"
 					}
 					steps {
 						script {
-						    dir('${workspace}')
+						    dir('mosy2}')
 							{
 								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git'
 								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/bpms-cluster.git -b siqa-trunk-bpms-cluster'
