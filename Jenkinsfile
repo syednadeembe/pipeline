@@ -43,7 +43,7 @@ pipeline
 						{
 						dir('/home/siqa/jenkins/checkout/bpms-cluster/') 
 							{
-									sh 'ant -file build.xml boot'
+									sh 'ant boot'
                     		}
 						}
 					}
