@@ -3,8 +3,8 @@ pipeline
   	agent {
 			node 
 			   {
-				label 'vmlna01'
-		       }
+				label 'vmlna02'
+		    }
 		  }
   environment 
   {
