@@ -13,6 +13,18 @@ pipeline
   stages 
   {
 
+		stage('Cleanup'){
+			steps{
+			    dir("${workspace}"){
+			        sh 'rm -rf *'
+			    }
+
+			}
+
+		    
+		    
+		}
+
 		stage('Checkout CloudDeployment Automation project') 
 		{
 	    			steps 
