@@ -27,16 +27,21 @@ pipeline
 					}
 				}
 		stage('boot') 
-		{
-			steps 
 				{
-					dir('/home/siqa/jenkins/checkout/bpms-cluster/') 
+				
+				agent 
 					{
-							sh 'ant -file build.xml boot'
-                    }
-			    }
+						label 'vmlna01'
+					}
+				steps 
+					{
+						dir('/home/siqa/jenkins/checkout/bpms-cluster/') 
+							{
+									sh 'ant -file build.xml boot'
+                    		}
+			    	}
 		
-		}
+				}
 	}
 	
 }	
