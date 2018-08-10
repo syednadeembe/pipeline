@@ -1,20 +1,16 @@
 pipeline 
 {
-  agent none
+  agent vmlna01
+  environment 
+  {
+		workspace="/home/siqa/jenkins/checkout"
+  }
   stages 
   {
 
 		stage('Checkout CloudDeployment Automation project') 
 		{
-					agent 
-					{
-						label 'vmlna01'
-					}
-					environment 
-					{
-						workspace="/home/siqa/jenkins/checkout"
-					}
-					steps 
+	    			steps 
 					{
 						script 
 						{
@@ -27,16 +23,7 @@ pipeline
 					}
 		}
 		stage('boot') 
-		{
-				
-					agent 
-					{
-						label 'vmlna01'
-					}
-					environment 
-					{
-						workspace="/home/siqa/jenkins/checkout"
-					}
+		{				
 					steps 
 					{
 						script 
