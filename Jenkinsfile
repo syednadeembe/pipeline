@@ -5,7 +5,7 @@ pipeline
   {
 
 		stage('Checkout CloudDeployment Automation project') 
-				{
+		{
 					agent 
 					{
 						label 'vmlna01'
@@ -25,15 +25,12 @@ pipeline
 							}
 						}
 					}
-				}
+		}
 		stage('boot') 
+		{
+				node('vmlna01')
 				{
-				
-				agent 
-					{
-						label 'vmlna01'
-					}
-				steps 
+					steps 
 					{
 						dir('/home/siqa/jenkins/checkout/bpms-cluster/') 
 							{
@@ -42,6 +39,7 @@ pipeline
 			    	}
 		
 				}
-	}
+		}
 	
-}	
+  }
+}		
