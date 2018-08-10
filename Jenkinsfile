@@ -1,16 +1,23 @@
-pipeline {
+pipeline 
+{
   agent none
-  stages {
+  stages 
+  {
 
-		stage('Checkout CloudDeployment Automation project') {
-					agent {
+		stage('Checkout CloudDeployment Automation project') 
+				{
+					agent 
+					{
 						label 'vmlna01'
 					}
-					environment {
+					environment 
+					{
 						workspace="/home/siqa/jenkins/checkout"
 					}
-					steps {
-						script {
+					steps 
+					{
+						script 
+						{
 						    dir("${workspace}")
 							{
 								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git'
@@ -19,17 +26,17 @@ pipeline {
 						}
 					}
 				}
-			}
-		stage('checkout build Assets') {
-		
-			agent {
-						label 'vmlna01'
-					}
-			steps {
-					dir('/home/siqa/jenkins/checkout/bpms-cluster/') {
+		stage('boot') 
+		{
+			steps 
+				{
+					dir('/home/siqa/jenkins/checkout/bpms-cluster/') 
+					{
 							sh 'ant -file build.xml boot'
                     }
-			      }
+			    }
 		
 		}
 	}
+	
+}	
