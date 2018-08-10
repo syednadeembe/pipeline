@@ -33,8 +33,9 @@ pipeline
 					{
 						script 
 						{
-						dir('/home/siqa/jenkins/checkout/bpms-cluster/') 
+						dir('/home/siqa/jenkins/checkout/command-central/') 
 							{
+									sh '$pwd'
 									sh 'ant boot'
                     		}
 						}
