@@ -21,6 +21,10 @@ pipeline {
 				}
 			}
 		stage('checkout build Assets') {
+		
+			agent {
+						label 'vmlna01'
+					}
 			steps {
 					dir('/home/siqa/jenkins/checkout/bpms-cluster/') {
 							sh 'ant -file build.xml boot'
