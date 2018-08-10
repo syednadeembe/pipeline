@@ -1,6 +1,11 @@
 pipeline 
 {
-  agent vmlna01
+  	agent {
+			node 
+			   {
+				label 'vmlna01'
+		       }
+		  }
   environment 
   {
 		workspace="/home/siqa/jenkins/checkout"
