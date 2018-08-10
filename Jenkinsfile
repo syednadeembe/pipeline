@@ -20,4 +20,11 @@ pipeline {
 					}
 				}
 			}
+		stage('checkout build Assets') {
+			steps {
+					dir('/home/siqa/jenkins/checkout/bpms-cluster/') {
+							sh 'ant -file build.xml boot'
+                    }
+			      }
+		
 		}
