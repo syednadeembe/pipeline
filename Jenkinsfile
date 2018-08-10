@@ -47,7 +47,7 @@ pipeline
 						{
 						dir('/home/siqa/jenkins/checkout/command-central/') 
 							{
-									sh '$pwd'
+									echo '$pwd'
 									sh 'ant boot'
                     		}
 						}
