@@ -8,7 +8,7 @@ pipeline
 		  }
   environment 
   {
-		workspace="/home/siqa/jenkins/"
+		workspace="/home/siqa/jenkins/checkout"
   }
   stages 
   {
