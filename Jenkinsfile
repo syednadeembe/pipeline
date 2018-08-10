@@ -6,6 +6,11 @@ pipeline
 				label 'vmlna02'
 		    }
 		  }
+		  tools{
+		      
+		     ant 'ant-1.9.7'
+		  }
+
   environment 
   {
 		workspace="/home/siqa/jenkins/checkout"
