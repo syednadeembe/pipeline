@@ -15,7 +15,7 @@ pipeline
   environment 
   {
 		workspace="/home/siqa/jenkins/checkout"
-		installationDir="/home/siqa"
+		installationDir="/home/siqa/"
   }
   stages 
   {
@@ -24,6 +24,7 @@ pipeline
 			steps{
 			    dir("${workspace}"){
 			        sh 'rm -rf *'
+					sh 'ls -l'
 			    }
 
 			}
