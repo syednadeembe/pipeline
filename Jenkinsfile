@@ -33,7 +33,6 @@ pipeline
 			steps{
 			    dir('/home/siqa/sag'){
 					sh 'ls -l'
-					sh 'ps -ef | grep cc'
 			        sh 'rm -rf *'
 			    }
 
@@ -42,7 +41,7 @@ pipeline
 		    
 		}
 
-	/*	stage('Checkout Automation Project') 
+		stage('Checkout Automation Project') 
 		{
 	    			steps 
 					{
@@ -70,7 +69,7 @@ pipeline
                     		}
 						}
 					}
-		}*/
+		}
 	
   }
 }		
