@@ -35,7 +35,7 @@ pipeline
 		}	
 		    
 		    
-		}
+
 
 		stage('Checkout Automation Project') 
 		{
