@@ -29,16 +29,7 @@ pipeline
 
 			}
 		}	
-		stage('Cleanup installationDir'){
-			steps{
-			    dir("${installationDir}"){
-			        sh 'rm -rf sag'
-			    }
 
-			}
-		    
-		    
-		}
 
 		stage('Checkout Automation Project') 
 		{
