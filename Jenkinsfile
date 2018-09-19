@@ -20,13 +20,15 @@ pipeline
   stages 
   {
 
-		stage('Cleanup'){
+		stage('Cleanup workspace'){
 			steps{
 			    dir("${workspace}"){
 			        sh 'rm -rf *'
 			    }
 
 			}
+		}	
+		stage('Cleanup installationDir'){
 			steps{
 			    dir("${installationDir}"){
 			        sh 'rm -rf sag'
@@ -51,7 +53,7 @@ pipeline
 						}
 					}
 		}
-		stage('boot') 
+		stage('Boot') 
 		{				
 					steps 
 					{
