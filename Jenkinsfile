@@ -15,7 +15,7 @@ pipeline
   environment 
   {
 		workspace="/home/siqa/jenkins/checkout"
-		installationDir="/home/siqa/"
+		//installationDir="/home/siqa/"
   }
   stages 
   {
@@ -31,7 +31,7 @@ pipeline
 		}	
 		stage('Cleanup installationDir'){
 			steps{
-			    dir("${installationDir}"){
+			    dir('/home/siqa/'){
 					sh 'ls -l'
 					sh 'ps -ef | grep cc'
 			        sh 'rm -rf sag'
