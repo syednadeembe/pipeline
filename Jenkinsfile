@@ -20,23 +20,19 @@ pipeline
   stages 
   {
 
-		stage('Cleanup workspace'){
+		stage('Cleanup '){
 			steps{
 			    dir("${workspace}"){
 			        sh 'rm -rf *'
 					sh 'ls -l'
 			    }
-
-			}
-		}	
-		stage('Cleanup installationDir'){
-			steps{
-			    dir('/home/siqa/sag'){
+				dir('/home/siqa/sag'){
 					sh 'ls -l'
 			        sh 'rm -rf *'
 			    }
-
+				
 			}
+		}	
 		    
 		    
 		}
