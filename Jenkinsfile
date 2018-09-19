@@ -29,9 +29,20 @@ pipeline
 
 			}
 		}	
+		stage('Cleanup installationDir'){
+			steps{
+			    dir("${installationDir}"){
+					sh 'ls -l'
+					sh 'ps -ef | grep cc'
+			        sh 'rm -rf sag'
+			    }
 
+			}
+		    
+		    
+		}
 
-		stage('Checkout Automation Project') 
+	/*	stage('Checkout Automation Project') 
 		{
 	    			steps 
 					{
@@ -59,7 +70,7 @@ pipeline
                     		}
 						}
 					}
-		}
+		}*/
 	
   }
 }		
