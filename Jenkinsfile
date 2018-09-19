@@ -31,10 +31,10 @@ pipeline
 		}	
 		stage('Cleanup installationDir'){
 			steps{
-			    dir('/home/siqa/'){
+			    dir('/home/siqa/sag'){
 					sh 'ls -l'
 					sh 'ps -ef | grep cc'
-			        sh 'rm -rf sag'
+			        sh 'rm -rf *'
 			    }
 
 			}
