@@ -4,9 +4,10 @@ pipeline
 			node 
 			   {
 				label 'vmlna02'
-		    }
+		       }
 		  }
-		  tools{
+		  tools
+		  {
 		      
 		     ant 'ant-1.9.7'
 		  }
@@ -14,6 +15,7 @@ pipeline
   environment 
   {
 		workspace="/home/siqa/jenkins/checkout"
+		installationDir="/home/siqa"
   }
   stages 
   {
@@ -25,12 +27,17 @@ pipeline
 			    }
 
 			}
+			steps{
+			    dir("${installationDir}"){
+			        sh 'rm -rf sag'
+			    }
 
+			}
 		    
 		    
 		}
 
-		stage('Checkout CloudDeployment Automation project') 
+		stage('Checkout Automation Project') 
 		{
 	    			steps 
 					{
