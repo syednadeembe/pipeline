@@ -54,7 +54,7 @@
 						{
 						    dir("${workspace}")
 							{
-								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git -b release/104apr2019'
+								sh 'git clone --recursive -b release/104apr2019 http://irepo.eur.ad.sag/scm/devops/command-central.git'
 								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/bpms-cluster.git -b siqa-trunk-bpms-cluster'
 							}
 						}
