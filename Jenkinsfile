@@ -16,28 +16,27 @@
   {
 		workspace="/home/siqa/jenkins/checkout"
 		installationDir="/home/siqa/sag"
-	//	spmServerLocation=
-	//	cceServerLocation=
+		spmServerLocation="/home/siqa/sag/cc/profiles/CCE/bin"
+		cceServerLocation="/home/siqa/sag/cc/profiles/SPM/bin"
 	    cceAutomationTemplateLocation="/home/siqa/jenkins/checkout/command-central"
 		bpmAutomationTemplateLocation="/home/siqa/jenkins/checkout/bpms-cluster"
   }
   stages 
   {
 
-		stage('Cleanup '){
+		stage('Cleanup'){
 			steps{
-/*				dir("${spmServerLocation}"){
+				dir("${spmServerLocation}"){
+					sh './shutdown.sh'
 			    }
 			    dir("${cceServerLocation}"){
-
+					sh './shutdown.sh'
 			    }
 			    dir("${workspace}"){
 			        sh 'rm -rf *'
-					sh 'ls -l'
 			    }
-*/				dir("${installationDir}"){
-		//			sh 'ls -l'
-		//	        sh 'rm -rf *'
+				dir("${installationDir}"){
+					sh 'ls -l'
 			    }
 				
 			}
@@ -54,13 +53,13 @@
 						{
 						    dir("${workspace}")
 							{
-							//	sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git'
+								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git'
 								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/bpms-cluster.git -b siqa-trunk-bpms-cluster'
 							}
 						}
 					}
 		}
-	/*	stage('Boot') 
+/*		stage('Boot') 
 		{				
 					steps 
 					{
@@ -73,7 +72,7 @@
 						}
 					}
 		}
-	*/	
+		
 		stage('Up') 
 		{				
 					steps 
@@ -87,7 +86,7 @@
 						}
 					}
 		}
-/*		stage('Execute') 
+*/		stage('Execute') 
 		{				
 					steps 
 					{
@@ -95,11 +94,11 @@
 						{
 						dir("${bpmAutomationTemplateLocation}")
 							{
-									sh ''
+									sh 'ant provision -Denv=Trunk-bpm-crosshost-win'
                     		}
 						}
 					}
 		}
-*/	
+	
   }
 }				
