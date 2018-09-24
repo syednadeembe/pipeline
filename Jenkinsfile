@@ -1,4 +1,4 @@
-pipeline 
+	pipeline 
 {
   	agent {
 			node 
@@ -59,9 +59,21 @@ pipeline
 						{
 						dir('/home/siqa/jenkins/checkout/command-central/') 
 							{
-									sh 'ls -l'
-									echo '$pwd'
 									sh 'ant boot'
+                    		}
+						}
+					}
+		}
+		
+				stage('Up') 
+		{				
+					steps 
+					{
+						script 
+						{
+						dir('/home/siqa/jenkins/checkout/command-central/') 
+							{
+									sh 'ant up'
                     		}
 						}
 					}
