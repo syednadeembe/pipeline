@@ -15,18 +15,25 @@
   environment 
   {
 		workspace="/home/siqa/jenkins/checkout"
-		//installationDir="/home/siqa/"
+		installationDir="/home/siqa/sag"
+	//	spmServerLocation=
+	//	cceServerLocation=
   }
   stages 
   {
 
 		stage('Cleanup '){
 			steps{
+/*				dir("${spmServerLocation}"){
+			    }
+			    dir("${cceServerLocation}"){
+
+			    }
 			    dir("${workspace}"){
 			        sh 'rm -rf *'
 					sh 'ls -l'
 			    }
-				dir('/home/siqa/sag'){
+*/				dir("${installationDir}"){
 					sh 'ls -l'
 			        sh 'rm -rf *'
 			    }
