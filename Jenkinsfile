@@ -27,10 +27,10 @@
 		stage('Cleanup'){
 			steps{
 				dir("${spmServerLocation}"){
-					sh './shutdown.sh'
+		//			sh './shutdown.sh'
 			    }
 			    dir("${cceServerLocation}"){
-					sh './shutdown.sh'
+		//			sh './shutdown.sh'
 			    }
 			    dir("${workspace}"){
 			        sh 'rm -rf *'
