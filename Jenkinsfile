@@ -18,6 +18,8 @@
 		installationDir="/home/siqa/sag"
 	//	spmServerLocation=
 	//	cceServerLocation=
+	    cceAutomationTemplateLocation="/home/siqa/jenkins/checkout/command-central"
+		bpmAutomationTemplateLocation="/home/siqa/jenkins/checkout/bpms-cluster"
   }
   stages 
   {
@@ -64,7 +66,7 @@
 					{
 						script 
 						{
-						dir('/home/siqa/jenkins/checkout/command-central/') 
+						dir("${cceAutomationTemplateLocation}")
 							{
 									sh 'ant boot'
                     		}
@@ -72,19 +74,32 @@
 					}
 		}
 		
-				stage('Up') 
+		stage('Up') 
 		{				
 					steps 
 					{
 						script 
 						{
-						dir('/home/siqa/jenkins/checkout/command-central/') 
+						dir("${cceAutomationTemplateLocation}")
 							{
 									sh 'ant up'
                     		}
 						}
 					}
 		}
-	
+/*		stage('Execute') 
+		{				
+					steps 
+					{
+						script 
+						{
+						dir("${bpmAutomationTemplateLocation}")
+							{
+									sh ''
+                    		}
+						}
+					}
+		}
+*/	
   }
 }				
