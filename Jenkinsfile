@@ -36,8 +36,8 @@
 					sh 'ls -l'
 			    }
 */				dir("${installationDir}"){
-					sh 'ls -l'
-			        sh 'rm -rf *'
+		//			sh 'ls -l'
+		//	        sh 'rm -rf *'
 			    }
 				
 			}
@@ -54,13 +54,13 @@
 						{
 						    dir("${workspace}")
 							{
-								sh 'git clone --recursive -b release/104apr2019 http://irepo.eur.ad.sag/scm/devops/command-central.git'
+							//	sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/command-central.git'
 								sh 'git clone --recursive http://irepo.eur.ad.sag/scm/devops/bpms-cluster.git -b siqa-trunk-bpms-cluster'
 							}
 						}
 					}
 		}
-		stage('Boot') 
+	/*	stage('Boot') 
 		{				
 					steps 
 					{
@@ -68,12 +68,12 @@
 						{
 						dir("${cceAutomationTemplateLocation}")
 							{
-									sh 'ant boot'
+									sh 'ant boot -Dbootstrap=blr -Dinstaller=cc-def-10.4-milestone-lnxamd64'
                     		}
 						}
 					}
 		}
-		
+	*/	
 		stage('Up') 
 		{				
 					steps 
