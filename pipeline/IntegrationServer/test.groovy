@@ -3,14 +3,8 @@ pipeline {
     string(name: 'TAG', defaultValue: '10.3', description: 'Image Tag')
   }
   environment {
-    TAG_SUFFIX = """${sh(
-        returnStdout: true,
-        script: 'date "+%0d"'
-      ).trim()}"""
-    BUILD_DATE = """${sh(
-        returnStdout: true,
-        script: 'date -u "+%Y-%m-%dT%H:%M:%SZ"'
-      ).trim()}"""
+    TAG_SUFFIX = 0304
+    BUILD_DATE = 0304
   }
   agent {
     node {
