@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: repo
+  labels:
+    app: repo
+    tenantid: "${tenantId}"
+spec:
+  containers:
+  - name: repo
+    image: ${DOCKER_REPO}/cloud-deployment/cloud-repository:${TAG}
+    imagePullPolicy: Always
+    ports:
+    - name: http
+      protocol: TCP
+      containerPort: 80
+    env:
+    - name: DEBUG
+      value: "1"
+    resources:
+      limits:
+        memory: 768Mi
+      requests:
+        memory: 512Mi
+    volumeMounts:
+    - name: repo-data-volume
+      mountPath: /opt/repo
+    - name: repo-secret-volume
+      mountPath: /opt/softwareag/common/auth/repo
+      readOnly: true
+  volumes:
+  - name: repo-data-volume
+    emptyDir: {}
+  - name: repo-secret-volume
+    secret:
+      secretName: repo-secret
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1724
+    fsGroup: 1724      

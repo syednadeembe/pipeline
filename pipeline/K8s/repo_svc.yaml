@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: repo
+  namespace: "${tenantId}"
+  labels:
+    app: repo
+    tenantid: "${tenantId}"
+spec:
+  selector:
+    app: repo
+    tenantid: "${tenantId}"
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
