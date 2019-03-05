@@ -78,8 +78,7 @@ function startIS {
   iterCount=0
   while [ $iterCount -ne $maxDependWaitCount ]
   do
-    retCode=`curl --silent --show-error --write-out "%{http_code}" \
-          --output $respFile -u "$user:$passwd" "http://localhost:8092/spm/monitoring/runtimestatus/OSGI-IS_default"`
+    retCode=`curl -u Administrator:manage http://localhost:8092/spm/inventory/fixes`
     if [ $retCode -eq 200 ]
     then
       grep "ONLINE" $respFile > /dev/null
@@ -100,8 +99,7 @@ function startIS {
 }
 
 function getISFixes {
-    retCode=`curl --silent --show-error --write-out "%{http_code}" \
-          --output $respFile -u "$user:$passwd" "http://localhost:8092/spm/inventory/fixes"`
+    retCode=`curl -u Administrator:manage http://localhost:8092/spm/inventory/fixes`
     if [ $retCode -ne 200 ]
     then
       exit_error "Error: Unable to get Fix information, SPM Server is not responding"
